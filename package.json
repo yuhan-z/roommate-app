@@ -1,0 +1,21 @@
+{
+  "name": "RoommateApp",
+  "version": "0.0.1",
+  "author": "Yuhan Zhang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuhan-z/roommate-app"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "express3-handlebars": "*"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
