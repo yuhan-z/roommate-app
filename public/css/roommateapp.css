@@ -15,6 +15,8 @@ body {
 .main-content {
   overflow: auto;
   height: 100%;
+  text-align: center;
+
 }
 
 .app-bar {
@@ -25,3 +27,14 @@ body {
 .mdc-top-app-bar {
   z-index: 7;
 }
+
+
+.mdc-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  height: 100px;
+  width: 350px;
+  padding: 16px;
+}
+
