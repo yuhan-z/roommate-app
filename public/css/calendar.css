@@ -17,7 +17,7 @@ li {
 
 li:nth-child(n+1):nth-child(-n+7) {
   font-weight: 900;
-  color: #e67e22;
+  color: black;
 }
 
 li:nth-child(n+39), li:nth-child(n+8):nth-child(-n+16) {
@@ -27,7 +27,7 @@ li:nth-child(n+39), li:nth-child(n+8):nth-child(-n+16) {
 
 li:hover:nth-child(n+8):nth-child(-n+38), li:nth-child(17){
   border-radius: 5px;
-  background-color: #1abc9c;
+  background-color: gray;
   color: #ecf0f1;
 }
 
