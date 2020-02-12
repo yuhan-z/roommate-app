@@ -1,8 +1,8 @@
 'use strict';
 
 // Call this function when the page loads (the "ready" event)
-$(document).ready(function() {
-	initializePage();
+$(document).ready(function () {
+    initializePage();
 })
 
 /*
@@ -11,7 +11,13 @@ $(document).ready(function() {
 function initializePage() {
     console.log("Javascript connected!");
 
-	$('input.login_btn').click(function(e) {
-        $.get('/home', home.view);
+    /*
+    $('#btn-login').click(function (e) {
+        e.preventDefault();
+
+        console.log("Login button pressed!");
+
+        //$.get('http://localhost:3000/home/', home.view);
     });
+    */
 }
