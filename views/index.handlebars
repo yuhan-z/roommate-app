@@ -26,26 +26,37 @@
         <!-- h1 through h6 are headers. The higher the number, the smaller the header -->
         <!-- p means paragraph -->
         <div class="jumbotron">
-            <h3>Login</h3>
-            <p>human-computer interaction &middot; social computing &middot; crowdsourcing</p>
-            <!-- Login Page Form -->
-            <form>
-                <!-- Username input bar -->
-                <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                    <input type="text" class="form-control" id="inputEmail" placeholder="name@example.com">
+            <!-- Card Component -->
+            <div class="card">
+                <div class="card-header">
+                    <h1>Login</h1>
                 </div>
-                <!-- Password input bar -->
-                <div class="form-group">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <div class="card-body">
+                    <!-- Login Page Form -->
+                    <form>
+                        <!-- Username input bar -->
+                        <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                            <input type="text" class="form-control" id="inputEmail" placeholder="name@example.com">
+                        </div>
+                        <!-- Password input bar -->
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                        <!-- Submit Login Button -->
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn float-right login_btn">
+                        </div>
+                    </form>
                 </div>
-                <!-- Submit Login Button -->
-                <div class="form-group">
-                    <input type="submit" value="Login" class="btn float-right login_btn" href="/home">
-                </div>
-            </form>
+            </div>
         </div>
+
+        <!-- Add scripts here -->
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/index.js"></script>
 </body>
 
 </html>
