@@ -17,7 +17,7 @@
 <body>
 	<div class="container">
 		<!-- Navbar -->
-		<nav class="navbar justify-content-center">
+		<nav class="navbar bg-light justify-content-center flex-column">
 			<ul class="nav nav-pills">
 				<li class="nav-item">
 					<a class="nav-link" href="/home">
@@ -50,24 +50,32 @@
 					</a>
 				</li>
 			</ul>
+			<!-- App name header -->
+			<nav class="navbar sticky-top">
+				<h3>The Roommate App</h3>
+			</nav>
 		</nav>
 		<!--/. Navbar -->
 
-		<div class="text-center">
-			<h1>The Roommate App</h1>
-
-			<br>
-
+		<!-- content -->
+		<div class="jumbotron text-center">
 			<!-- Render JSON File -->
 			<div class="card bg-light mx-auto text-left border-dark" style="max-width: 25rem;" id="">
 				<div class="card-header">
 					House Rules
 				</div>
-				<ol class="list-group list-group-flush">
+				<div class="card-body">
+					<ol>
+						{{#each rules}}
+						<li class="list-group-item">{{description}}</li>
+						{{/each}}Ï
+					</ol>
+				</div>
+				<ul class="list-group list-group-flush">
 					{{#each rules}}
 					<li class="list-group-item">{{description}}</li>
 					{{/each}}
-				</ol>
+				</ul>
 			</div>
 			<br>
 			<!-- render json -->
