@@ -32,6 +32,29 @@
         }
     ],
 
+    "transactions": [
+        {
+            "title": "Eli charged YOU.",
+            "amount": "-600",
+            "description": "Rent Jan 2020"
+        },
+        {
+            "title": "Jadon charged YOU.",
+            "amount": "-40",
+            "description": "Electricity Dec 2019"
+        },
+        {
+            "title": "YOU charged Ricardo.",
+            "amount": "20",
+            "description": "Groceris"
+        },
+        {
+            "title": "YOU charged Eli.",
+            "amount": "15",
+            "description": "Supplies"
+        }
+    ],
+
 	"calendar": [
         {
             "date": "2/12/20",
