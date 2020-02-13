@@ -74,12 +74,14 @@
 		<br>
 		<!-- Render json file -->
 		<div class="card bg-light mx-auto text-left border-dark" style="max-width: 50rem;">
-			{{#each updates}}
+			{{#each transactions}}
 			<div class="card-header">
-				Date of Transaction
+				{{title}}
 			</div>
 			<ol class="list-group list-group-flush">
-				<li class="list-group-item">{{description}}</li>
+				<li class="list-group-item">
+					{{description}}
+				</li>
 			</ol>
 			{{/each}}
 		</div>
