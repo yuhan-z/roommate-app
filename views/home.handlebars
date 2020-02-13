@@ -17,7 +17,7 @@
 <body>
 	<div class="container">
 		<!-- Navbar -->
-		<nav class="navbar justify-content-center">
+		<nav class="navbar bg-light justify-content-center flex-column">
 			<ul class="nav nav-pills">
 				<li class="nav-item">
 					<a class="nav-link active" href="/home">
@@ -50,24 +50,40 @@
 					</a>
 				</li>
 			</ul>
+			<!-- App name header -->
+			<nav class="navbar sticky-top">
+				<h3>The Roommate App</h3>
+			</nav>
 		</nav>
 		<!--/. Navbar -->
-
+		<br>
+		<!-- Content -->
 		<div class="text-center">
-			<h1>The Roommate App</h1>
+			<div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
+				<div class="card-header">
+					Address
+				</div>
+				<div class="card-body">
+					<p>
+						9500 Gilman Dr. <br>
+						La Jolla, CA, 92093
+					</p>
+				</div>
+			</div>
 
 			<br>
-
 			<!-- Render JSON File -->
-			{{#each updates}}
-			<div class="card bg-light mx-auto" style="max-width: 25rem;" id="">
-				<div class="card-body">
-					<p class="card-text">{{description}}</p>
+			<div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
+				<div class="card-header">
+					Updates
 				</div>
-
+				{{#each updates}}
+				<ol class="list-group list-group-flush">
+					<li class="list-group-item">{{description}}</li>
+				</ol>
+				{{/each}}
 			</div>
 			<br>
-			{{/each}}
 			<!-- render json -->
 		</div>
 	</div>
