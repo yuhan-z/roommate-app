@@ -56,12 +56,34 @@
 			</nav>
 		</nav>
 		<!--/. Navbar -->
-		<br>
+
 		<!-- Content -->
-		<div class="text-center">
-			content
-			<!-- render json -->
+		<nav class="navbar">
+			<ul class="nav nav-tabs text-center" style="width: 100%">
+				<li class="nav-item col">
+					<a class="nav-link active" href="#">Transactions</a>
+				</li>
+				<li class="nav-item col">
+					<a class="nav-link" href="#">Summary</a>
+				</li>
+				<li class="nav-item col">
+					<a class="nav-link" href="#">Money</a>
+				</li>
+			</ul>
+		</nav>
+		<br>
+		<!-- Render json file -->
+		<div class="card bg-light mx-auto text-left border-dark" style="max-width: 50rem;">
+			{{#each updates}}
+			<div class="card-header">
+				Date of Transaction
+			</div>
+			<ol class="list-group list-group-flush">
+				<li class="list-group-item">{{description}}</li>
+			</ol>
+			{{/each}}
 		</div>
+		<!-- render json -->
 	</div>
 
 	<!-- Optional JavaScript -->
