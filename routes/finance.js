@@ -1,4 +1,9 @@
+var data = require('../data.json');
 
-exports.view = function(req, res){
-  res.render('finance');
+/*
+ * GET finance page.
+ */
+
+exports.view = function (req, res) {
+  res.render('finance', data);
 };

@@ -1,4 +1,9 @@
+var data = require('../data.json');
 
-exports.view = function(req, res){
-  res.render('rules');
+/*
+ * GET rules page.
+ */
+
+exports.view = function (req, res) {
+  res.render('rules', data);
 };

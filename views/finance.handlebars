@@ -1,79 +1,98 @@
 <!doctype html>
 
 <html>
+
 <head>
-	<title>Roommate App</title>	
+	<title>Roommate App</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
- 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="./css/roommateapp.css">
-	<!-- this is a comment in HTML -->      
-</head>
-<body>
-	<aside class="mdc-drawer mdc-drawer--modal">
-		<div class="mdc-drawer__header">
-    	  <p class="mdc-drawer__title">Menu</p>
-        </div>
-	    <div class="mdc-drawer__content">
-	      <div class="mdc-list">
-	        <a class="mdc-list-item" href="/" aria-current="page">
-	          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
-	          <span class="mdc-list-item__text">Home</span>
-	        </a>
-	        <a class="mdc-list-item" href="/calendar">
-	          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">calendar_today</i>
-	          <span class="mdc-list-item__text">Calendar</span>
-	        </a>
-	        <a class="mdc-list-item" href="/rules">
-	          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">assignment</i>
-	          <span class="mdc-list-item__text">House Rules</span>
-	        </a>
-	        <a class="mdc-list-item mdc-list-item--activated" href="/finance">
-	          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">attach_money</i>
-	          <span class="mdc-list-item__text">Finance</span>
-	        </a>
-	       	<a class="mdc-list-item" href="/settings">
-	          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>
-	          <span class="mdc-list-item__text">Settings</span>
-	        </a>
-	      </div>
-	    </div>
-  	</aside>
-  	<div class="mdc-drawer-scrim"></div>
-	<div class="mdc-drawer-app-content">
-	    <header class="mdc-top-app-bar">
-	      <div class="mdc-top-app-bar__row">
-	        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-	          <a href="#" class="demo-menu mdc-icon-button material-icons mdc-top-app-bar__navigation-icon">menu</a>
-	          <span class="mdc-top-app-bar__title">Roommate App</span>
-	        </section>
-	      </div>
-	    </header>
 
-	    <main class="main-content" id="main-content">
-	      <div class="mdc-top-app-bar--fixed-adjust">
-	      	<h1>Finance</h1>
-	      </div>
-	    </main>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<!-- Load an icon library -->
+	<script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
+
+	<!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
+	<!-- this is a comment in HTML -->
+
+<body>
+	<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar bg-light justify-content-center flex-column">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<a class="nav-link" href="/home">
+						<i class="fas fa-home"></i>
+						Home
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/calendar">
+						<i class="fas fa-calendar-day"></i>
+						Calendar
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/rules">
+						<i class="fas fa-clipboard-list"></i>
+						House Rules
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="/finance">
+						<i class="fas fa-dollar-sign"></i>
+						Finance
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/settings">
+						<i class="fas fa-cog"></i>
+						Settings
+					</a>
+				</li>
+			</ul>
+			<!-- App name header -->
+			<nav class="navbar sticky-top">
+				<h3>The Roommate App</h3>
+			</nav>
+		</nav>
+		<!--/. Navbar -->
+
+		<!-- Content -->
+		<nav class="navbar">
+			<ul class="nav nav-tabs text-center" style="width: 100%">
+				<li class="nav-item col">
+					<a class="nav-link active" href="#">Transactions</a>
+				</li>
+				<li class="nav-item col">
+					<a class="nav-link" href="#">Summary</a>
+				</li>
+				<li class="nav-item col">
+					<a class="nav-link" href="#">Money</a>
+				</li>
+			</ul>
+		</nav>
+		<br>
+		<!-- Render json file -->
+		<div class="card bg-light mx-auto text-left border-dark" style="max-width: 50rem;">
+			{{#each transactions}}
+			<div class="card-header">
+				{{title}}
+			</div>
+			<ol class="list-group list-group-flush">
+				<li class="list-group-item">
+					{{description}}
+				</li>
+			</ol>
+			{{/each}}
+		</div>
+		<!-- render json -->
 	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script>
-		const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
-		const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'));
-		topAppBar.setScrollTarget(document.getElementById('main-content'));
-		topAppBar.listen('MDCTopAppBar:nav', () => {
-		  drawer.open = !drawer.open;
-		});
-		$('.mdc-list-item').click(function(e) {
-            drawer.open = !drawer.open;
-            });
-
-	</script>
-
-
-
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
