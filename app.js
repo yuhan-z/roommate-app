@@ -19,6 +19,7 @@ var finance = require('./routes/finance');
 var settings= require('./routes/settings');
 var chores = require('./routes/chores');
 var appliance = require('./routes/appliance');
+var addchore = require('./routes/addchore');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -53,6 +54,7 @@ app.get('/rules', rules.view);
 app.get('/settings', settings.view);
 app.get('/chores', chores.view);
 app.get('/appliance', appliance.view);
+app.get('/addchore', addchore.addChore);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
