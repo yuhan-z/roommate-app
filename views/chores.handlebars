@@ -15,10 +15,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css">
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 	<!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
 	<!-- this is a comment in HTML -->
@@ -26,103 +29,107 @@
 <body>
 	<div class="container">
 		<!-- Navbar -->
-		<nav class="navbar bg-light justify-content-center flex-column">
-			<ul class="nav nav-pills">
-				<li class="nav-item">
-					<a class="nav-link" href="/home">
-						<i class="fas fa-home"></i>
-						Home
-					</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/calendar">
-						<i class="fas fa-calendar-day"></i>
-						Calendar
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/rules">
-						<i class="fas fa-clipboard-list"></i>
-						House Rules
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/finance">
-						<i class="fas fa-dollar-sign"></i>
-						Finance
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/settings">
-						<i class="fas fa-cog"></i>
-						Settings
-					</a>
-				</li>
-			</ul>
-			<!-- App name header -->
-			<nav class="navbar sticky-top">
-				<h3>The Roommate App</h3>
-			</nav>
+		<nav class="navbar bg-light justify-content-center">
+			<a class="nav-item nav-link fa-2x" href="/calendar">
+				<i class="fas fa-chevron-left"></i>
+				<i class="fas fa-calendar-day"></i>
+			</a>
 		</nav>
 		<!--/. Navbar -->
-		<br>
+
 		<!-- Content -->
-		<div class="text-center main-content">
-	      	<h2>What Chore?</h2>
-	      	<div class="chore">
-		      	<button type="button" class="btn btn-primary btn-lg btn-success" id="Trash">Trash</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Dishes">Dishes</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Cleaning">Cleaning</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Supplies">Supplies</button>
-	        </div>
-	        <br>
-	      	<h2>Who?</h2>
-	      	<div class="people">
-		      	<button type="button" class="btn btn-primary btn-lg btn-success" id="Jessie">Jessie</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Christine">Christine</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Yuhan">Yuhan</button>
-	      	</div>
-	      	<br>
-	      	<div class="dateform">
-	      	<h2>When?</h2>
-	      	<input class="date" data-provide="datepicker" placeholder="Date" data-date-format="yyyy-mm-dd">
-	      	</div>
-	      	<br>
-	      	<br>
-	      	<div class="submit">
-	      		<button type="button" class="btn btn-primary btn-lg">assign</button>
-	      	</div>
+		<div class="card bg-light mx-auto border-dark main-content m-4" style="max-width: 35rem;" id="">
+			<!-- WHO -->
+			<div class="card-header">
+				<h3>Who?</h3>
+			</div>
+			<div class="card-body text-center people">
+				<div class="row row-cols-2 mb-4">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Jessie">Jessie</button>
+					</div>
+
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Christine">Christine</button>
+					</div>
+				</div>
+
+				<div class="row row-cols-2">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Yuhan">Yuhan</button>
+					</div>
+				</div>
+			</div>
+			<!-- CHORE -->
+			<div class="card-header">
+				<h3>Chore?</h3>
+			</div>
+			<div class="card-body text-center chore">
+				<div class="row row-cols-2 mb-4">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Trash">Trash</button>
+					</div>
+
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Dishes">Dishes</button>
+					</div>
+				</div>
+
+				<div class="row row-cols-2">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Cleaning">Cleaning</button>
+					</div>
+
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Supplies">Supplies</button>
+					</div>
+				</div>
+			</div>
+			<!-- WHEN -->
+			<div class="card-header">
+				<h3>When?</h3>
+			</div>
+			<div class="card-body text-center chore">
+				<div class="input-group mb-4">
+					<div class="input-group-prepend">
+						<div class="input-group-text">Date</div>
+					</div>
+					<input class="date form-control" id="inputDate" data-provide="datepicker" placeholder="YYYY-MM-DD"
+						data-date-format="yyyy-mm-dd">
+				</div>
+				<div class="submit">
+					<button type="button" class="btn btn-primary btn-lg">Done</button>
+				</div>
+			</div>
 		</div>
 	</div>
-
-
 
 	<script>
 		var description = ""
 		var name = ""
-		var date= ""
-		$(".main-content .chore .btn-primary").click(function(e){
+		var date = ""
+		$(".main-content .chore .btn-primary").click(function (e) {
 			e.preventDefault();
 			description = this.id;
-			console.log("chore "+description)
+			console.log("chore " + description)
 
 			$(".main-content .chore .btn-success").removeClass("btn-success")
 
 			this.classList.add("btn-success")
 		});
-		$(".main-content .people .btn-primary").click(function(e){
+		$(".main-content .people .btn-primary").click(function (e) {
 			e.preventDefault();
 			name = this.id;
-			console.log("name "+description)
+			console.log("name " + description)
 			$(".main-content .people .btn-success").removeClass("btn-success")
 			this.classList.add("btn-success")
 		});
 
-		$(".main-content .submit .btn-primary").click(function(e){
+		$(".main-content .submit .btn-primary").click(function (e) {
 			e.preventDefault();
 			date = $(".main-content .date").val()
-			console.log("date "+date)
-			if (date==""){
+			console.log("date " + date)
+			if (date == "") {
 				$(".dateform h2").css('color', 'red');
 				this.classList.add("btn-danger")
 				return
@@ -134,7 +141,7 @@
 				color = "Blue";
 			if (name == "Yuhan")
 				color = "Red"
-			window.location.href = '/addchore?color='+color+'&description='+description+'&date='+date;
+			window.location.href = '/addchore?color=' + color + '&description=' + description + '&date=' + date;
 		});
 
 
