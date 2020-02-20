@@ -47,55 +47,45 @@
 <body>
 	<div class="container">
 		<!-- Navbar -->
-		<nav class="navbar bg-light justify-content-center flex-column">
+		<nav class="navbar bg-light justify-content-center">
+			<h3>The Roommate App</h3>
+		</nav>
+		<nav class="navbar bg-light justify-content-center flex-column fixed-bottom">
 			<ul class="nav nav-pills">
 				<li class="nav-item">
 					<a class="nav-link" href="/home">
 						<i class="fas fa-home"></i>
-						Home
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link active" href="/calendar">
 						<i class="fas fa-calendar-day"></i>
-						Calendar
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/rules">
 						<i class="fas fa-clipboard-list"></i>
-						House Rules
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/finance">
-						<i class="fas fa-dollar-sign"></i>
-						Finance
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/settings">
 						<i class="fas fa-cog"></i>
-						Settings
 					</a>
 				</li>
 			</ul>
 			<!-- App name header -->
-			<nav class="navbar sticky-top">
-				<h3>The Roommate App</h3>
-			</nav>
 		</nav>
 		<!--/. Navbar -->
 		<br>
 		<!-- Content -->
 		<div id='calendar'></div>
 		<br>
-		<div class="text-center">
-			<button class="btn btn-primary" onclick="window.location.href = '/chores';" type="button">Assign Chore</button>
-			<button class="btn btn-primary" onclick="window.location.href = '/appliance';" type="button">Reserve Appliance</button>
+		<div class="text-center" style="padding-bottom: 80px;">
+			<a class="btn btn-primary" id="btn-assign" href="/chores">Assign Chore</a>
+			<a class="btn btn-primary" id="btn-assign" href="/appliance">Reserve Appliance</a>
 		</div>
-
 	</div>
+	
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
