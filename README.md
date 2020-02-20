@@ -8,7 +8,7 @@ Collaborators:
 
 ## Resources
 
-### Icons:
+### Icons
 * Font Awesome: https://fontawesome.com/icons/
 * Example (Home Icon):
 ```html
