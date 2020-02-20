@@ -17,3 +17,4 @@ Collaborators:
 
 ### Calendar API
 * FullCalendar: https://fullcalendar.io/docs
+* Demo: https://fullcalendar.io/docs/bootstrap-theme-demo
