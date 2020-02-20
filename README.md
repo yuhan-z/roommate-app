@@ -4,3 +4,13 @@ Collaborators:
 * Christine Chung 
 * Yuhan Zhang
 * Jessie Cruz 
+
+
+## Resources
+Icons:
+* https://fontawesome.com/icons/
+* Example:
+```html
+<i class="fas fa-home"></i>
+```
+
