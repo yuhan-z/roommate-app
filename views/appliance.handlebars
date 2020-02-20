@@ -27,63 +27,78 @@
 	<div class="container">
 		<!-- Navbar -->
 		<nav class="navbar bg-light justify-content-center">
-			<h3>The Roommate App</h3>
-		</nav>
-		<nav class="navbar bg-light justify-content-center flex-column fixed-bottom">
-			<ul class="nav nav-pills">
-				<li class="nav-item">
-					<a class="nav-link" href="/home">
-						<i class="fas fa-home"></i>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="/calendar">
-						<i class="fas fa-calendar-day"></i>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/rules">
-						<i class="fas fa-clipboard-list"></i>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/settings">
-						<i class="fas fa-cog"></i>
-					</a>
-				</li>
-			</ul>
-			<!-- App name header -->
+			<a class="nav-item nav-link fa-2x" href="/calendar">
+				<i class="fas fa-chevron-left"></i>
+				<i class="fas fa-calendar-day"></i>
+			</a>
 		</nav>
 		<!--/. Navbar -->
-		<br>
+
 		<!-- Content -->
-		<div class="text-center main-content">
-	      	<h2>What Appliance?</h2>
-	      	<div class="chore">
-		      	<button type="button" class="btn btn-primary btn-lg btn-success" id="Stove">Stove</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="TV">TV</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Washer">Washer</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Dryer">Dryer</button>
-	        </div>
-	        <br>
-	      	<h2>Who?</h2>
-	      	<div class="people">
-		      	<button type="button" class="btn btn-primary btn-lg btn-success" id="Jessie">Jessie</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Christine">Christine</button>
-		      	<button type="button" class="btn btn-primary btn-lg" id="Yuhan">Yuhan</button>
-	      	</div>
-	      	<br>
-	      	<div class="dateform">
-	      	<h2>Date?</h2>
-	      	<input class="date" data-provide="datepicker" placeholder="Date" data-date-format="yyyy-mm-dd">
-	      	<br>
-	      	<input class="time" placeholder="Time, e.g. 4-5PM">
-	      	</div>
-	      	<br>
-	      	<br>
-	      	<div class="submit">
-	      		<button type="button" class="btn btn-primary btn-lg">assign</button>
-	      	</div>
+		<div class="card bg-light mx-auto border-dark main-content m-4" style="max-width: 35rem;" id="">
+			<!-- WHO -->
+			<div class="card-header">
+				<h3>Who?</h3>
+			</div>
+			<div class="card-body text-center people">
+				<div class="row row-cols-2 mb-4">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Jessie">Jessie</button>
+					</div>
+
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Christine">Christine</button>
+					</div>
+				</div>
+
+				<div class="row row-cols-2">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Yuhan">Yuhan</button>
+					</div>
+				</div>
+			</div>
+			<!-- APPLIANCE -->
+			<div class="card-header">
+				<h3>Appliance?</h3>
+			</div>
+			<div class="card-body text-center chore">
+				<div class="row row-cols-2 mb-4">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Stove">Stove</button>
+					</div>
+
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="TV">TV</button>
+					</div>
+				</div>
+
+				<div class="row row-cols-2">
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Washer">Washer</button>
+					</div>
+
+					<div class="col">
+						<button type="button" class="btn btn-primary btn-lg" id="Dryer">Dryer</button>
+					</div>
+				</div>
+			</div>
+			<!-- WHAT -->
+			<div class="card-header">
+				<h3>What?</h3>
+			</div>
+			<!-- SUBMIT -->
+			<div class="card-body text-center chore">
+				<div class="input-group mb-4">
+					<div class="input-group-prepend">
+						<div class="input-group-text">Date</div>
+					</div>
+					<input class="date form-control" id="inputDate" data-provide="datepicker" placeholder="YYYY-MM-DD"
+						data-date-format="yyyy-mm-dd">
+				</div>
+				<div class="submit">
+					<button type="button" class="btn btn-primary btn-lg">Done</button>
+				</div>
+			</div>
 		</div>
 	</div>
 
