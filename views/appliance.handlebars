@@ -27,15 +27,12 @@
 	<div class="container">
 		<!-- Navbar -->
 		<nav class="navbar bg-light justify-content-center">
-			<a class="nav-item nav-link fa-2x" href="/calendar">
-				<i class="fas fa-chevron-left"></i>
-				<i class="fas fa-calendar-day"></i>
-			</a>
+			<h2>Reserve Appliance</h3>
 		</nav>
 		<!--/. Navbar -->
 
 		<!-- Content -->
-		<div class="card bg-light mx-auto border-dark main-content m-4" style="max-width: 35rem;" id="">
+		<div class="card bg-light mx-auto border-dark main-content text-center" style="max-width: 35rem;" id="">
 			<!-- WHO -->
 			<div class="card-header">
 				<h3>Who?</h3>
@@ -86,8 +83,8 @@
 			<div class="card-header">
 				<h3>What?</h3>
 			</div>
-			<!-- SUBMIT -->
-			<div class="card-body text-center chore">
+			<div class="card-body text-center">
+				<!-- DATE INPUT -->
 				<div class="input-group mb-4">
 					<div class="input-group-prepend">
 						<div class="input-group-text">Date</div>
@@ -95,54 +92,72 @@
 					<input class="date form-control" id="inputDate" data-provide="datepicker" placeholder="YYYY-MM-DD"
 						data-date-format="yyyy-mm-dd">
 				</div>
+				<!-- TIME INPUT -->
+				<div class="input-group mb-4">
+					<div class="input-group-prepend">
+						<div class="input-group-text">Time</div>
+					</div>
+					<input class="date form-control" id="inputTime" data-provide="datepicker" placeholder="YYYY-MM-DD"
+						data-date-format="yyyy-mm-dd">
+				</div>
+				<!-- SUBMIT -->
 				<div class="submit">
 					<button type="button" class="btn btn-primary btn-lg">Done</button>
 				</div>
 			</div>
 		</div>
+
+		<nav class="navbar bg-light justify-content-center">
+			<a class="nav-item nav-link fa-3x" href="/calendar">
+				<i class="fas fa-chevron-left"></i>
+				<i class="fas fa-calendar-day"></i>
+			</a>
+		</nav>
 	</div>
 
 
 
 	<script>
-		var description = ""
-		var name = ""
-		var date= ""
-		$(".main-content .chore .btn-primary").click(function(e){
-			e.preventDefault();
-			description = this.id;
-			console.log("chore "+description)
+		var description = "";
+		var name = "";
+		var date= "";
 
-			$(".main-content .chore .btn-success").removeClass("btn-success")
-
-			this.classList.add("btn-success")
-		});
 		$(".main-content .people .btn-primary").click(function(e){
 			e.preventDefault();
 			name = this.id;
-			console.log("name "+description)
-			$(".main-content .people .btn-success").removeClass("btn-success")
-			this.classList.add("btn-success")
+			console.log("name "+description);
+			$(".main-content .people .btn-success").removeClass("btn-success");
+			this.classList.add("btn-success");
+		});
+
+		$(".main-content .chore .btn-primary").click(function(e){
+			e.preventDefault();
+			description = this.id;
+			console.log("chore "+description);
+
+			$(".main-content .chore .btn-success").removeClass("btn-success");
+
+			this.classList.add("btn-success");
 		});
 
 		$(".main-content .submit .btn-primary").click(function(e){
 			e.preventDefault();
-			date = $(".main-content .date").val()
+			date = $(".main-content .date").val();
 			if (date==""){
 				$(".dateform h2").css('color', 'red');
-				this.classList.add("btn-danger")
-				return
+				this.classList.add("btn-danger");
+				return;
 			}
-			description = "Reserved " + description + " "+ $(".main-content .time").val()
-			console.log("date "+date)
-			this.classList.add("btn-success")
-			color = ""
+			description = "Reserved " + description + " "+ $(".main-content .time").val();
+			console.log("date "+date);
+			this.classList.add("btn-success");
+			var color = "";
 			if (name == "Jessie")
 				color = "Purple";
 			if (name == "Christine")
 				color = "Blue";
 			if (name == "Yuhan")
-				color = "Red"
+				color = "Red";
 			window.location.href = '/addchore?color='+color+'&description='+description+'&date='+date;
 		});
 
