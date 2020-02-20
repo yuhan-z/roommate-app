@@ -7,10 +7,14 @@ Collaborators:
 
 
 ## Resources
-Icons:
-* https://fontawesome.com/icons/
-* Example:
+
+### Icons
+* Font Awesome: https://fontawesome.com/icons/
+* Example (Home Icon):
 ```html
 <i class="fas fa-home"></i>
 ```
 
+### Calendar API
+* FullCalendar: https://fullcalendar.io/docs
+* Demo: https://fullcalendar.io/docs/bootstrap-theme-demo

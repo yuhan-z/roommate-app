@@ -8,40 +8,79 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/calendar.css">
+
+	<!-- Calendar CSS -->
+	<link href='https://unpkg.com/@fullcalendar/core@4.3.1/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/daygrid@4.3.0/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/timegrid@4.3.0/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/list@4.3.0/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/bootstrap@4.3.0/main.min.css' rel='stylesheet' />
+
 	<!-- Load an icon library -->
 	<script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
 
-
+	<!-- Moment JS Plugin -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-	
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-	<link rel="stylesheet" href="/css/calendar.css">
+	<!-- Load FullCalendar library-->
+	<script src='https://unpkg.com/@fullcalendar/core@4.3.1/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/daygrid@4.3.0/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/timegrid@4.3.0/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/list@4.3.0/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/bootstrap@4.3.0/main.min.js'></script>
+
+	<!-- FullCalendar Script -->
 	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function() {
-		var calendarEl = document.getElementById('calendar');
+		document.addEventListener('DOMContentLoaded', function () {
+			var calendarEl = document.getElementById('calendar');
 
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			plugins: ['dayGrid'],
-			events: [
-			{{#each calendar}}
-				{
-      				title: "{{description}}",
-      				start: "{{date}}",
-      				backgroundColor: "{{color}}"
+			var calendar = new FullCalendar.Calendar(calendarEl, {
+				plugins: ['dayGrid', 'timeGrid', 'list', 'bootstrap'],
+				timeZone: 'UTC',
+				themeSystem: 'bootstrap',
+				eventLimit: true,
+				header: {
+					left: 'prev,next',
+					center: 'title',
+					right: 'today'
 				},
-			{{/each}}
+				footer: {
+					left: 'custom1',
+					center: '',
+					right: 'custom2'
+				},
+				customButtons: {
+					custom1: {
+						text: 'Assign Chore',
+						click: function () {
+							window.location.href = '/chores';
+						}
+					},
+					custom2: {
+						text: 'Reserve Appliance',
+						click: function () {
+							window.location.href = '/appliance';
+						}
+					}
+				},
+				events: [
+				{{#each calendar}} 
+				{
+					title: "{{description}}",
+					start: "{{date}}",
+					backgroundColor: "{{color}}"
+				},
+				{{/ each}}
 			]
 		});
 
 		calendar.render();
 		});
 	</script>
+	<!--/. calendar -->
 
-	<!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
 	<!-- this is a comment in HTML -->
 
 <body>
@@ -53,22 +92,22 @@
 		<nav class="navbar bg-light justify-content-center flex-column fixed-bottom">
 			<ul class="nav nav-pills">
 				<li class="nav-item">
-					<a class="nav-link" href="/home">
+					<a class="nav-link fa-3x" href="/home">
 						<i class="fas fa-home"></i>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" href="/calendar">
+					<a class="nav-link fa-3x active" href="/calendar">
 						<i class="fas fa-calendar-day"></i>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/rules">
+					<a class="nav-link fa-3x" href="/rules">
 						<i class="fas fa-clipboard-list"></i>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/settings">
+					<a class="nav-link fa-3x" href="/settings">
 						<i class="fas fa-cog"></i>
 					</a>
 				</li>
@@ -77,15 +116,10 @@
 		</nav>
 		<!--/. Navbar -->
 		<br>
-		<!-- Content -->
-		<div id='calendar'></div>
-		<br>
-		<div class="text-center" style="padding-bottom: 80px;">
-			<a class="btn btn-primary" id="btn-assign" href="/chores">Assign Chore</a>
-			<a class="btn btn-primary" id="btn-assign" href="/appliance">Reserve Appliance</a>
-		</div>
+		<!-- Calendar -->
+		<div id='calendar' style="padding-bottom: 80px;"></div>
 	</div>
-	
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
