@@ -15,7 +15,6 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var calendar = require('./routes/calendar');
 var rules = require('./routes/rules');
-var finance = require('./routes/finance');
 var settings= require('./routes/settings');
 var chores = require('./routes/chores');
 var appliance = require('./routes/appliance');
@@ -41,7 +40,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//app.get('/hello/:userName', hello.view);
+// app.get('/hello/:userName', hello.view);
 // Example route
 // app.get('/users', user.list);
 
@@ -49,7 +48,6 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/home', home.view);
 app.get('/calendar', calendar.view);
-app.get('/finance', finance.view);
 app.get('/rules', rules.view);
 app.get('/settings', settings.view);
 app.get('/chores', chores.view);
