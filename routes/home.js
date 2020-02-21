@@ -5,8 +5,8 @@ var data = require('../data.json');
  */
 
 exports.view = function (req, res) {
-	name = req.query.name
-	if(name == null) name = "anonymous"
-	data["name"] = name;
+	name = req.query.name;
+	if(name == null) name = "anonymous";
+	if(data["name"] == null) data["name"] = name;
     res.render('home', data);
 };
