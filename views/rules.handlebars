@@ -34,10 +34,16 @@
 						<br>
 						{{#each rules}}
 						<li class="">{{description}}</li>
-						<br>
+						<div class="removeRule" id="r{{@index}}">
+							<br>
+						</div>
 						{{/each}}
 					</ol>
 				</div>
+			</div>
+			<br>
+			<div class="edit">
+				<button type="button" class="btn btn-primary">Edit</button>
 			</div>
 			<br>
 			<!-- render json -->
@@ -76,6 +82,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(".edit button").click(function(e){
+			e.preventDefault();
+			$(".edit").html(	'<form id="addRule" role="form" method="get" action="/rules/add">'+
+					'<input type="text" placeholder="Add Rule" name ="rule" required>'+
+					'<input type="submit" class="btn btn-primary" value="Add">'+
+				'</form>');
+			$(".removeRule").each(function(index){
+				$(".removeRule#r"+index).html(	'<form role="form" method="get" action="/rules/remove">'+
+					'<input type="text" class="invisible" name ="index" value="'+index+'">'+
+					'<input type="submit" class="btn btn-danger" value="remove">'+
+				'</form>');
+			});
+		});
+	</script>
+
 </body>
 
 </html>
