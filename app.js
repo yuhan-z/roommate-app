@@ -53,6 +53,8 @@ app.get('/settings', settings.view);
 app.get('/chores', chores.view);
 app.get('/appliance', appliance.view);
 app.get('/addchore', addchore.addChore);
+app.get('/rules/add', rules.add);
+app.get('/rules/remove', rules.remove);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

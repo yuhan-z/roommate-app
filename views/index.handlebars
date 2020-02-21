@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- add facebook partial and facebook.js -->
+    {{> facebook}}
+    <script src="/js/facebook.js"></script>
     <!-- this is a comment in HTML -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -46,8 +50,9 @@
                     </div>
                     <!-- Login Button -->
                     <div class="form-group text-right">
-                        <a class="btn btn-primary" id="btn-login" href="/home">Login</a>
+                        <a class="btn btn-primary" id="btn-login" href="/home">Login</a>                      
                     </div>
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
                 </form>
             </div>
         </div>
