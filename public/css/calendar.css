@@ -24,3 +24,16 @@
 	height: 15px;
 	width: 50px;
 }
+
+.hidden_legend {
+	display:none;
+}
+
+.long_padding{
+	padding-bottom: 10rem;
+}
+
+.short_padding{
+	padding-bottom: 1rem;
+}
+

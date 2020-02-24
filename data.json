@@ -92,5 +92,20 @@
 			"color": "Red",
 			"description": "Cleaning"
         }
+    ],
+
+    "roommates": [
+        {
+            "name": "Yuhan",
+            "color": "Red"
+        },
+        {
+            "name": "Christine",
+            "color": "Blue"
+        },
+        {
+            "name": "Jessie",
+            "color": "Purple"
+        }
     ]
 }

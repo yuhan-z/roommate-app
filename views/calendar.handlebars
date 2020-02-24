@@ -49,7 +49,7 @@
 				},
 				footer: {
 					left: 'custom1',
-					center: '',
+					center: 'custom3',
 					right: 'custom2'
 				},
 				customButtons: {
@@ -63,6 +63,23 @@
 						text: 'Reserve Appliance',
 						click: function () {
 							window.location.href = '/appliance';
+						}
+					},
+					custom3: {
+						text: 'Legend',
+						click: function () {
+							if($(".legend").hasClass("hidden_legend")){
+								$(".legend").removeClass("hidden_legend");
+								$("#calendar").removeClass("long_padding");
+								$("#calendar").addClass("short_padding");
+								$(this).addClass('active');
+							}
+							else{
+								$(".legend").addClass("hidden_legend");
+								$("#calendar").removeClass("short_padding");
+								$("#calendar").addClass("long_padding");
+								$(this).removeClass('active');
+							}
 						}
 					}
 				},
@@ -92,12 +109,12 @@
 		</nav>
 		<!--/. Navbar -->
 		<!-- Calendar -->
-		<div id='calendar' style="padding-bottom: 1rem;"></div>
-		<div class='legend' style="padding-bottom: 10rem;">
+		<div id='calendar' class="long_padding"></div>
+		<div class='legend hidden_legend' style="padding-bottom: 9rem;">
 		  <ul class='legend-labels'>
-		    <li><span style='background:blue;'></span>Christine</li>
-		    <li><span style='background:purple;'></span>Jessie</li>
-		    <li><span style='background:red;'></span>Yuhan</li>
+		  	{{#each roommates}}
+		    <li><span style='background:{{color}};'></span>{{name}}</li>
+		    {{/each}}
 		  </ul>
 		</div>
 	</div>
@@ -110,7 +127,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">$("#nav_calendar").addClass("active")</script>
+	<script type="text/javascript">$("#nav_calendar").addClass("active");</script>
 </body>
 
 </html>

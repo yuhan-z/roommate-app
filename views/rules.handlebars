@@ -23,7 +23,7 @@
 		<!--/. Navbar -->
 
 		<!-- content -->
-		<div class="jumbotron text-center">
+		<div class="jumbotron text-center" style="padding-bottom: 5rem;">
 			<!-- Render JSON File -->
 			<div class="card bg-light mx-auto text-left border-dark" style="max-width: 25rem;" id="">
 				<div class="card-header">
@@ -68,7 +68,7 @@
 				'</form>');
 			$(".removeRule").each(function(index){
 				$(".removeRule#r"+index).html(	'<form role="form" method="get" action="/rules/remove">'+
-					'<input type="text" class="invisible" name ="index" value="'+index+'">'+
+					'<input type="text" class="invisible" name ="index" value="'+index+'" style="display:none;">'+
 					'<input type="submit" class="btn btn-danger" value="remove">'+
 				'</form>');
 			});
