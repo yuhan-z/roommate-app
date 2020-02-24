@@ -133,6 +133,7 @@
 			this.classList.add("btn-success");
 		});
 
+
 		$(".main-content .submit .btn-primary").click(function (e) {
 			e.preventDefault();
 			date = $(".main-content .date").val();
@@ -142,14 +143,7 @@
 				this.classList.add("btn-danger");
 				return;
 			}
-			var color = "";
-			if (name == "Jessie")
-				color = "Purple";
-			if (name == "Christine")
-				color = "Blue";
-			if (name == "Yuhan")
-				color = "Red"
-			window.location.href = '/addchore?color=' + color + '&description=' + description + '&date=' + date;
+			window.location.href = '/addevent?name=' + name + '&description=' + description + '&date=' + date+'&category=chore';
 		});
 	</script>
 </body>

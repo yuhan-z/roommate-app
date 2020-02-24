@@ -33,6 +33,28 @@
 
 	<!-- FullCalendar Script -->
 	<script type="text/javascript">
+		// construct events data
+		{{> load_events}}
+
+		var name_color = {
+			{{#each roommates}}
+			"{{name}}":"{{color}}",
+			{{/each}}
+		};
+
+		// start building event list for calendar
+		events_list = [];
+
+		for (var i = 0; i < events.length; i++) {
+			var event = events[i];
+			var event_entry = {};
+			event_entry["start"] = event["date"];
+			event_entry["backgroundColor"] = name_color[event["name"]];
+			// first letter uppercase
+			event_entry["title"] = event["description"][0].toUpperCase()+event["description"].slice(1)+" "+event["name"];
+			events_list.push(event_entry);
+		}
+
 		document.addEventListener('DOMContentLoaded', function () {
 			var calendarEl = document.getElementById('calendar');
 
@@ -83,15 +105,7 @@
 						}
 					}
 				},
-				events: [
-				{{#each calendar}} 
-				{
-					title: "{{description}}",
-					start: "{{date}}",
-					backgroundColor: "{{color}}"
-				},
-				{{/ each}}
-			]
+				events: events_list
 		});
 
 		calendar.render();
