@@ -1,0 +1,51 @@
+* {
+  --mdc-theme-primary: gray;
+}
+
+.mdc-drawer .mdc-list-item--activated {
+    color: gray;
+}
+
+.mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic {
+    color: black;
+}
+
+
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0px;
+}
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+  text-align: center;
+
+}
+
+.app-bar {
+  position: absolute;
+}
+
+// only apply this style if below top app bar
+.mdc-top-app-bar {
+  z-index: 7;
+}
+
+
+.mdc-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  height: 100px;
+  width: 350px;
+  padding: 16px;
+}
+

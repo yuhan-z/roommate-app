@@ -1,0 +1,147 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>Roommate App</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/calendar.css">
+
+	<!-- Calendar CSS -->
+	<link href='https://unpkg.com/@fullcalendar/core@4.3.1/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/daygrid@4.3.0/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/timegrid@4.3.0/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/list@4.3.0/main.min.css' rel='stylesheet' />
+	<link href='https://unpkg.com/@fullcalendar/bootstrap@4.3.0/main.min.css' rel='stylesheet' />
+
+	<!-- Load an icon library -->
+	<script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
+
+	<!-- Moment JS Plugin -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+	<!-- Load FullCalendar library-->
+	<script src='https://unpkg.com/@fullcalendar/core@4.3.1/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/daygrid@4.3.0/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/timegrid@4.3.0/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/list@4.3.0/main.min.js'></script>
+	<script src='https://unpkg.com/@fullcalendar/bootstrap@4.3.0/main.min.js'></script>
+
+	<!-- FullCalendar Script -->
+	<script type="text/javascript">
+		// construct events data
+		{{> load_events}}
+
+		var name_color = {
+			{{#each roommates}}
+			"{{name}}":"{{color}}",
+			{{/each}}
+		};
+
+		// start building event list for calendar
+		events_list = [];
+
+		for (var i = 0; i < events.length; i++) {
+			var event = events[i];
+			var event_entry = {};
+			event_entry["start"] = event["date"];
+			event_entry["backgroundColor"] = name_color[event["name"]];
+			// first letter uppercase
+			event_entry["title"] = event["description"][0].toUpperCase()+event["description"].slice(1)+" "+event["name"];
+			events_list.push(event_entry);
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			var calendarEl = document.getElementById('calendar');
+
+			var calendar = new FullCalendar.Calendar(calendarEl, {
+				plugins: ['dayGrid', 'timeGrid', 'list', 'bootstrap'],
+				timeZone: 'UTC',
+				themeSystem: 'bootstrap',
+				eventLimit: true,
+				height: 'auto',
+				header: {
+					left: 'today',
+					center: 'title',
+					right: 'prev,next'
+				},
+				footer: {
+					left: 'custom1',
+					center: 'custom3',
+					right: 'custom2'
+				},
+				customButtons: {
+					custom1: {
+						text: 'Assign Chore',
+						click: function () {
+							window.location.href = '/chores';
+						}
+					},
+					custom2: {
+						text: 'Reserve Appliance',
+						click: function () {
+							window.location.href = '/appliance';
+						}
+					},
+					custom3: {
+						text: 'Legend',
+						click: function () {
+							if($(".legend").hasClass("hidden_legend")){
+								$(".legend").removeClass("hidden_legend");
+								$("#calendar").removeClass("long_padding");
+								$("#calendar").addClass("short_padding");
+								$(this).addClass('active');
+							}
+							else{
+								$(".legend").addClass("hidden_legend");
+								$("#calendar").removeClass("short_padding");
+								$("#calendar").addClass("long_padding");
+								$(this).removeClass('active');
+							}
+						}
+					}
+				},
+				events: events_list
+		});
+
+		calendar.render();
+		});
+	</script>
+	<!--/. calendar -->
+
+	<!-- this is a comment in HTML -->
+
+<body>
+	<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar bg-light justify-content-center mb-4">
+			<h3>The Roommate App</h3>
+		</nav>
+		<!--/. Navbar -->
+		<!-- Calendar -->
+		<div id='calendar' class="long_padding"></div>
+		<div class='legend hidden_legend' style="padding-bottom: 9rem;">
+		  <ul class='legend-labels'>
+		  	{{#each roommates}}
+		    <li><span style='background:{{color}};'></span>{{name}}</li>
+		    {{/each}}
+		  </ul>
+		</div>
+	</div>
+	<!-- Bottom Navbar -->
+	{{> nav}}
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">$("#nav_calendar").addClass("active");</script>
+</body>
+
+</html>
