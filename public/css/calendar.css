@@ -1,0 +1,39 @@
+#calendar {
+	height: auto;
+}
+
+.legend ul {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+}
+.legend ul li {
+	display: block;
+	float: left;
+	width: 50px;
+	margin-left: 20px;
+	margin-bottom: 6px;
+	text-align: center;
+	font-size: 80%;
+	list-style: none;
+}
+.legend ul.legend-labels li span {
+	display: block;
+	float: left;
+	height: 15px;
+	width: 50px;
+}
+
+.hidden_legend {
+	display:none;
+}
+
+.long_padding{
+	padding-bottom: 10rem;
+}
+
+.short_padding{
+	padding-bottom: 1rem;
+}
+

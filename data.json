@@ -1,52 +1,98 @@
 {
-	"updates": [
-		{
-			"description": "It is Christine's turn to wash the dishes."
-		},
-		{
-			"description": "Jessie has reserved the washer from 2-3PM"
-		},
-		{
-			"description": "Yuhan has reserved the TV from 4-5PM"
-		},
-	]
+    "addressline1": "9500 Gilman Dr.",
+    "addressline2": "La Jolla, CA, 92093",
+
+    "rules": [
+        {
+            "description": "Divide bills fairly (and on time!)."
+        },
+        {
+            "description": "Follow the cleaning schedule."
+        },
+        {
+            "description": "Pets are the owner’s responsibility."
+        },
+        {
+            "description": "Don’t borrow without asking."
+        },
+        {
+            "description": "Respect each other's space."
+        },
+        {
+            "description": "Communicate. Communicate. Communicate."
+        }
+    ],
 
 	"calendar": [
-		{
-			"date": "2/12/20"
-			"name": "Christine"
-			"color": "Blue"
-			"description": "Dishes"
-		},
-		{
-			"date": "2/12/20"
-			"name": "Jessie"
-			"color": "Purple"
-			"description": "Reserved washer 2-3PM"
-		},
-		{
-			"date": "2/12/20"
-			"name": "Yuhan"
-			"color": "Red"
-			"description": "Reserved TV 4-5PM"
-		},
-		{
-			"date": "2/13/20"
-			"name": "Jessie"
-			"color": "Purple"
-			"description": "Cleaning"
-		},
-		{
-			"date": "2/21/20"
-			"name": "Christine"
-			"color": "Blue"
-			"description": "Cleaning"
-		},
-		{
-			"date": "2/28/20"
-			"name": "Yuhan"
-			"color": "Red"
-			"description": "Cleaning"
-		},
-	]
+        {
+            "date": "2020-02-24",
+			"name": "Christine",
+			"description": "Dishes",
+            "category":"chore"
+        },
+        {
+            "date": "2020-02-24",
+			"name": "Jessie",
+			"description": "washer 2-3PM",
+            "category":"reservation"
+        },
+        {
+            "date": "2020-02-24",
+			"name": "Yuhan",
+			"description": "TV 4-5PM",
+            "category":"reservation"
+        },
+        {
+            "date": "2020-02-13",
+			"name": "Jessie",
+			"description": "Cleaning",
+            "category":"chore"
+        },
+        {
+            "date": "2020-02-24",
+			"name": "Christine",
+			"description": "Cleaning",
+            "category":"chore"
+        },
+        {
+            "date": "2020-02-24",
+			"name": "Yuhan",
+			"description": "Cleaning",
+            "category":"chore"
+        }
+    ],
+
+    "roommates": [
+        {
+            "name": "Yuhan",
+            "color": "Red"
+        },
+        {
+            "name": "Christine",
+            "color": "Blue"
+        },
+        {
+            "name": "Jessie",
+            "color": "Purple"
+        }
+    ],
+
+    "chores": [
+        {
+            "chore":"Dishes",
+            "action":"wash the dishes"
+        },
+        {
+            "chore":"Trash",
+            "action":"take out the trash"
+        },
+        {
+            "chore":"Cleaning",
+            "action":"do the cleaning"
+        },
+        {
+            "chore":"Supplies",
+            "action":"get the supply"
+        }
+    ]
 }
