@@ -150,17 +150,10 @@
 				this.classList.add("btn-danger");
 				return;
 			}
-			description = "Reserved " + description + " " + $(".main-content .time").val();
+			description = description + " " + $(".main-content .time").val();
 			console.log("date " + date);
 			this.classList.add("btn-success");
-			var color = "";
-			if (name == "Jessie")
-				color = "Purple";
-			if (name == "Christine")
-				color = "Blue";
-			if (name == "Yuhan")
-				color = "Red";
-			window.location.href = '/addchore?color=' + color + '&description=' + description + '&date=' + date;
+			window.location.href = '/addevent?name=' + name + '&description=' + description + '&date=' + date+'&category=reservation';
 		});
 
 

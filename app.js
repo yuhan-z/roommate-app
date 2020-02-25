@@ -18,7 +18,7 @@ var rules = require('./routes/rules');
 var settings= require('./routes/settings');
 var chores = require('./routes/chores');
 var appliance = require('./routes/appliance');
-var addchore = require('./routes/addchore');
+var addevent = require('./routes/addevent');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -52,7 +52,7 @@ app.get('/rules', rules.view);
 app.get('/settings', settings.view);
 app.get('/chores', chores.view);
 app.get('/appliance', appliance.view);
-app.get('/addchore', addchore.addChore);
+app.get('/addevent', addevent.addEvent);
 app.get('/rules/add', rules.add);
 app.get('/rules/remove', rules.remove);
 
