@@ -37,20 +37,20 @@
             <!-- Card Body -->
             <div class="card-body">
                 <!-- Login Page Form -->
-                <form>
+                <form method="get" action="/home">
                     <!-- Email input bar -->
                     <div class="form-group">
                         <label for="inputEmail">Email</label>
-                        <input type="text" class="form-control" id="inputEmail" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="inputEmail" name="name" placeholder="name@example.com" required>
                     </div>
                     <!-- Password input bar -->
                     <div class="form-group">
                         <label for="inputPassword">Password</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
                     </div>
                     <!-- Login Button -->
-                    <div class="form-group text-right">
-                        <a class="btn btn-primary" id="btn-login" href="/home">Login</a>                      
+                    <div class="form-group text-right"> 
+                        <input type="submit" class="btn btn-primary" value="start">                    
                     </div>
                     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
                 </form>

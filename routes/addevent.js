@@ -1,11 +1,12 @@
 var data = require("../data.json");
 
-exports.addChore = function(request, response) { 
+exports.addEvent = function(request, response) { 
 	// Your code goes here
 	var newEvent = {
-		"color": request.query.color,
+		"name": request.query.name,
 		"description": request.query.description,
-		"date": request.query.date		
+		"date": request.query.date,
+		"category":request.query.category	
 	};
 	console.log(newEvent);
 	data.calendar.push(newEvent);
