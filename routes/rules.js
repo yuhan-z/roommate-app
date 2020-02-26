@@ -18,6 +18,12 @@ exports.add = function (req, res) {
 
 exports.remove = function (req, res){
 	index = req.query.index;
-	data.rules.splice(index,1);
+	changed = req.query.new;
+	if(changed==null){
+		data.rules.splice(index,1);
+	}
+	else{
+		data.rules[index]["description"] = changed;
+	}
 	res.render('rules', data);
 }

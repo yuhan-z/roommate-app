@@ -56,6 +56,9 @@ app.get('/addevent', addevent.addEvent);
 app.get('/rules/add', rules.add);
 app.get('/rules/remove', rules.remove);
 
+// for A/B testing
+app.get('/homeAlt',home.viewAlt);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

@@ -33,8 +33,8 @@
 					<ol>
 						<br>
 						{{#each rules}}
-						<li class="">{{description}}</li>
 						<div class="removeRule" id="r{{@index}}">
+							<li class="rule" id="{{@index}}">{{description}}</li>
 							<br>
 						</div>
 						{{/each}}
@@ -65,12 +65,15 @@
 			$(".edit").html(	'<form id="addRule" role="form" method="get" action="/rules/add">'+
 					'<input type="text" placeholder="Add Rule" name ="rule" required>'+
 					'<input type="submit" class="btn btn-primary" value="Add">'+
-				'</form>');
+				'</form>'+
+				'<a class="btn btn-primary" href="/rules">Cancel</a>');
 			$(".removeRule").each(function(index){
-				$(".removeRule#r"+index).html(	'<form role="form" method="get" action="/rules/remove">'+
+				$(".removeRule#r"+index).html(	'<li><form role="form" method="get" action="/rules/remove">'+
 					'<input type="text" class="invisible" name ="index" value="'+index+'" style="display:none;">'+
+					'<input type="text" name ="new" value="'+$(".removeRule .rule#"+index).text()+'">'+
+					'<input type="submit" class="btn btn-warning" value="change">'+
 					'<input type="submit" class="btn btn-danger" value="remove">'+
-				'</form>');
+				'</form></li>');
 			});
 		});
 	</script>
