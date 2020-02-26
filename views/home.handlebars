@@ -47,7 +47,7 @@
             <!-- Render JSON File -->
             <div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
                 <div class="card-header">
-                    Updates
+                    Today's Updates
                 </div>
                 <div id="updates">
                     <!-- javascript will fill in here -->
@@ -97,10 +97,12 @@
         var html_list = "";
         var who = "";
         var what = "";
+        var event_count = 0
         for (var i = 0; i < events.length; i++) {
             // choose today's event
             var event = events[i];
             if (event["date"] == date) {
+            	event_count += 1;
                 html_list += '<ol class="list-group list-group-flush"><li class="list-group-item">';
                 // chore
                 if (event["category"] == "chore") {
@@ -135,6 +137,9 @@
                 html_list += '</li></ol>'
             }
 
+        }
+        if(event_count==0){
+        	html_list += '<ol class="list-group list-group-flush"><li class="list-group-item">No updates today.</li></ol>';
         }
         //console.log(html_list);
 
