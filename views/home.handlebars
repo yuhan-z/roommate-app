@@ -28,6 +28,12 @@
         </div>
         <!-- Card Content -->
         <div class="text-center" style="padding-bottom: 6rem;">
+            {{#if viewAlt}}
+            <div class="mb-3">
+                <button class="abtest btn btn-primary" id="chores">Assign Chore</button>
+                <button class="abtest btn btn-primary" id="appliance">Reserve Appliance</button>
+            </div>
+            {{/if}}
             <div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
                 <div class="card-header">
                     Address
