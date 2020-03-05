@@ -37,73 +37,52 @@
 		</nav>
 		<!--/. Navbar -->
 
-		<!-- Content -->
-		<div class="card bg-light mx-auto border-dark main-content text-center" style="max-width: 35rem;">
-			<!-- WHO -->
-			<div class="card-header">
-				<h3>Who?</h3>
-			</div>
-			<div class="card-body text-center people">
-				<div class="row row-cols-2 mb-4">
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Jessie">Jessie</button>
-					</div>
+        <!-- FORM -->
+        <form method="get" action="/assignChore" class="card bg-light mx-auto border-dark text-center justify-content-center" style="max-width: 35rem;">
 
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Christine">Christine</button>
-					</div>
-				</div>
+            <!-- ROOMMATE OPTIONS -->
+            <div class="form-group py-4 px-2">
+                <label for="selectRoommate" class="mr-2"><h3>Roommate:</h3></label>
 
-				<div class="row row-cols-2">
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Yuhan">Yuhan</button>
-					</div>
-				</div>
-			</div>
-			<!-- CHORE -->
-			<div class="card-header">
-				<h3>Chore?</h3>
-			</div>
-			<div class="card-body text-center chore">
-				<div class="row row-cols-2 mb-4">
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Trash">Trash</button>
-					</div>
+                <!-- OPTIONS -->
+                <select class="custom-select custom-select-lg w-50" name="roommate" id="selectRoommate" required>
+                    <option value="" disabled="" selected="">Select</option>
+                    <option value="0">Jessie</option>
+                    <option value="1">Yuhan</option>
+                    <option value="2">Christine</option>
+                </select>
+            </div>
 
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Dishes">Dishes</button>
-					</div>
-				</div>
+            <!-- CHORE OPTIONS -->
+            <div class="form-group pb-2 px-2">
+                <label for="selectChore" class="mr-2"><h3>Appliance:</h3></label>
 
-				<div class="row row-cols-2">
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Cleaning">Cleaning</button>
-					</div>
+                <!-- OPTIONS -->
+                <select class="custom-select custom-select-lg w-50" name="chore" id="selectChore" required>
+                    <option value="" disabled="" selected="">Select</option>
+                    <option value="0">Trash</option>
+                    <option value="1">Dishes</option>
+                    <option value="2">Cleaning</option>
+                    <option value="3">Supplies</option>
+                </select>
+            </div>
 
-					<div class="col">
-						<button type="button" class="btn btn-primary btn-lg" id="Supplies">Supplies</button>
-					</div>
-				</div>
-			</div>
-			<!-- WHEN -->
-			<div class="card-header">
-				<h3>When?</h3>
-			</div>
-			<div class="card-body text-center">
-				<div class="input-group mb-4">
-					<div class="input-group-prepend">
-						<div class="input-group-text">Date</div>
-					</div>
-					<input class="date form-control" id="inputDate" data-provide="datepicker" placeholder="YYYY-MM-DD"
-						data-date-format="yyyy-mm-dd">
-				</div>
-				<!-- SUBMIT -->
-				<div class="submit">
-					<button type="button" class="btn btn-primary btn-lg">Done</button>
-				</div>
-			</div>
-		</div>
+            <hr>
+
+            <!-- DATE INPUT -->
+            <div class="input-group px-4 py-4 col-sm-8 col-12 mx-auto">
+                <label for="dateInput" class="mr-2"><h3>Date:</h3></label>
+                <input type="date" class="form-control" id="dateInput" name="date" required>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <div class="pb-4 text-center">
+                <input type="submit" class="btn btn-success btn-lg" value="Assign">
+            </div>
+        </form>
 	</div>
+
+    <!-- NAV -->
 	<div class="container-fluid">
 		<nav class="navbar bg-light fixed-bottom">
 			<a class="nav-item nav-link fa-3x" href="/calendar">
@@ -114,29 +93,6 @@
 	</div>
 
 	<script>
-		var description = "";
-		var name = "";
-		var date = "";
-
-		$(".main-content .people .btn-primary").click(function (e) {
-			e.preventDefault();
-			name = this.id;
-			console.log("name: " + name);
-			$(".main-content .people .btn-success").removeClass("btn-success");
-			this.classList.add("btn-success");
-		});
-
-		$(".main-content .chore .btn-primary").click(function (e) {
-			e.preventDefault();
-			description = this.id;
-			console.log("chore: " + description);
-
-			$(".main-content .chore .btn-success").removeClass("btn-success");
-
-			this.classList.add("btn-success");
-		});
-
-
 		$(".main-content .submit .btn-primary").click(function (e) {
 			e.preventDefault();
 			date = $(".main-content .date").val();
