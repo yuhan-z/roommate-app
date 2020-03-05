@@ -53,8 +53,10 @@ app.get('/settings', settings.view);
 app.get('/chores', chores.view);
 app.get('/appliance', appliance.view);
 app.get('/addevent', addevent.addEvent);
+app.get('/addReservation', calendar.addReservation);
 app.get('/rules/add', rules.add);
 app.get('/rules/remove', rules.remove);
+app.post('/getEvents', home.getEvents);
 
 // for A/B testing
 app.get('/homeAlt',home.viewAlt);
