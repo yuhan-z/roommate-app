@@ -1,8 +1,11 @@
 {
     "addressline1": "9500 Gilman Dr.",
     "addressline2": "La Jolla, CA, 92093",
+    
     "housemates": ["Jessie", "Yuhan", "Christine"],
-    "appliances": ["stove", "tv", "washer", "washer"],
+    "appliances": ["stove", "tv", "washer", "dryer"],
+    "chore_list": ["trash", "dishes", "cleaning", "supplies"],
+
     "rules": [
         {
             "description": "Divide bills fairly (and on time!)."

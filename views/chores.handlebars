@@ -55,7 +55,7 @@
 
             <!-- CHORE OPTIONS -->
             <div class="form-group pb-2 px-2">
-                <label for="selectChore" class="mr-2"><h3>Appliance:</h3></label>
+                <label for="selectChore" class="mr-2"><h3>Chore:</h3></label>
 
                 <!-- OPTIONS -->
                 <select class="custom-select custom-select-lg w-50" name="chore" id="selectChore" required>
@@ -91,20 +91,6 @@
 			</a>
 		</nav>
 	</div>
-
-	<script>
-		$(".main-content .submit .btn-primary").click(function (e) {
-			e.preventDefault();
-			date = $(".main-content .date").val();
-			console.log("date: " + date);
-			if (date == "") {
-				$(".dateform h2").css('color', 'red');
-				this.classList.add("btn-danger");
-				return;
-			}
-			window.location.href = '/addevent?name=' + name + '&description=' + description + '&date=' + date+'&category=chore';
-		});
-	</script>
 </body>
 
 </html>
