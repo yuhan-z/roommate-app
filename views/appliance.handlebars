@@ -39,7 +39,7 @@
         <!--/. Navbar -->
         
         <!-- FORM -->
-        <form method="get" action="/addReservation" class="card bg-light mx-auto border-dark text-center justify-content-center main-content" style="max-width: 35rem;">
+        <form method="get" action="/addReservation" class="card bg-light mx-auto border-dark text-center justify-content-center" style="max-width: 35rem;">
 
             <!-- ROOMMATE OPTIONS -->
             <div class="form-group py-4 px-2">
@@ -70,12 +70,13 @@
 
             <hr>
 
+            <!-- DATE INPUT -->
             <div class="input-group px-4 py-4 col-sm-8 col-12 mx-auto">
                 <label for="dateInput" class="mr-2"><h3>Date:</h3></label>
                 <input type="date" class="form-control" id="dateInput" name="date" required>
             </div>
             
-            
+            <!-- TIME INPUT -->
             <div class="input-group px-4 pb-4 col-sm-8 col-12 mx-auto">
                 <label for="timeInput" class="mr-2"><h3>Time:</h3></label>
                 <input type="text" class="form-control" id="timeInput" name="time" placeholder="e.g. 4-5PM" required>
@@ -98,25 +99,6 @@
 			</a>
 		</nav>
 	</div>
-
-	<script>
-		$(".main-content .submit .btn-primary").click(function (e) {
-			e.preventDefault();
-			date = $(".main-content .date").val();
-			if (date == "") {
-				$(".dateform h2").css('color', 'red');
-				this.classList.add("btn-danger");
-				return;
-			}
-			description = description + " " + $(".main-content .time").val();
-			console.log("date " + date);
-			this.classList.add("btn-success");
-			window.location.href = '/addevent?name=' + name + '&description=' + description + '&date=' + date+'&category=reservation';
-		});
-
-
-
-	</script>
 </body>
 
 </html>
