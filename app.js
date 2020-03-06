@@ -57,6 +57,8 @@ app.get('/reserveApp', calendar.reserveApp);
 app.get('/rules', rules.view);
 app.get('/rules/add', rules.add);
 app.get('/rules/remove', rules.remove);
+app.get('/addRule', rules.addRule);
+app.get('/deleteRule', rules.deleteRule)
 // SETTINGS
 app.get('/settings', settings.view);
 // CHORES

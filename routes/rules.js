@@ -27,3 +27,24 @@ exports.remove = function (req, res){
 	}
 	res.render('rules', data);
 }
+
+exports.addRule = function (request, response) {
+	var description = request.query.newRule;
+	var newRule = {
+		"description": description
+	};
+	console.log(newRule);
+	data.rules.push(newRule);
+	response.render('rules', data);
+}
+
+exports.deleteRule = function (request, response) {
+    console.log("REMOVE RULE");
+    // var description = request.query.newRule;
+	// var newRule = {
+	// 	"description": description
+	// };
+	// console.log(newRule);
+	// data.rules.push(newRule);
+	// response.render('rules', data);
+}
