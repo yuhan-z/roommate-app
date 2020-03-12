@@ -19,6 +19,12 @@ function buttonHandler() {
     var containingDiv = $(this).closest(".div-rule");
     var ruleIndex = $(containingDiv).attr("id");
     console.log('delete rule button pressed!');
-    // $.get(URL, postCallback);
+    $.post("/deleteRule", {ruleIndex: ruleIndex}, postCallback);
     $(containingDiv).remove();
+    // window.location.reload();
+    $.get("/rules", postCallback);
+
+    function postCallback(result) {
+        console.log("postcallback delete rule...");
+    }
 }
