@@ -3,141 +3,108 @@
 <html>
 
 <head>
-	<title>Roommate App</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roommate App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<!-- Load an icon library -->
-	<script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/icons.css">
+    <!-- Load an icon library -->
+    <script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
+    <!-- Load Google Web Fonts/Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Inlcude Clipboard.js Libary -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 
-	<!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
-	<!-- this is a comment in HTML -->
-
+    <!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
+    <!-- this is a comment in HTML -->
+    
 <body>
-	<div class="container">
-		<!-- Navbar -->
-		<nav class="navbar bg-light justify-content-center">
-			<h3>The Roommate App</h3>
-		</nav>
-		<!--/. Navbar -->
-		<!-- Content -->
-		<h1>Welcome,</h1>
-		<h1 align="center">{{name}}</h1>
-		<br>
-		<div class="text-center" style="padding-bottom: 6rem;">
-			<div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
-				<div class="card-header">
-					Address
-				</div>
-				<div class="card-body">
-					<p>
-						{{addressline1}} <br>
-						{{addressline2}}
-					</p>
-				</div>
-			</div>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar bg-light justify-content-center">
+            <h3>{{appTitle}}</h3>
+        </nav>
+        <!--/. Navbar -->
+        <!-- Content -->
+        <!-- Name -->
+        <div class="media mb-4 mt-3 justify-content-center">
+            <img src="/images/chess.jpg" alt="Profile Image" class="mr-2 rounded-circle" style="height:40px; width:40px;">
+            <div class="">
+                <h4>{{username}}</h4>
+            </div>
+        </div>
+        <!-- Home Buttons Assign/Reserve -->
+        <div class="mb-3 d-flex justify-content-center">
+            <a class="btn btn-primary" href="/chores">Assign Chore</a>
+            <div class="col-2"></div>
+            <a class="btn btn-primary" href="/appliance">Reserve Appliance</a>
+        </div>
 
-			<br>
-			<!-- Render JSON File -->
-			<div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
-				<div class="card-header">
-					Updates
-				</div>
-				<div id="updates">
-					<!-- javascript will fill in here -->
-				</div>
-			</div>
-			<br>
-			<!-- render json -->
-		</div>
-	</div>
-	<!-- Bottom Navbar -->
-	{{> nav}}
+            <!-- Card Content -->
+            <div class="text-center" style="padding-bottom: 6rem;">
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$("#nav_home").addClass("active")
+            <div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
+                <div class="card-header">
+                    Address
+                </div>
+                <div class="card-body row">
+                    <div class="col-8 text-right">
+                        <!-- Target -->   
+                        <p id="address">
+                            {{addressline1}} <br>
+                            {{addressline2}}
+                        </p>
+                    </div>
+                    <div class="col-4 text-left">                
+                        <!-- Trigger -->
+                        <a class="text-primary btn-lg" id="copy-button" data-toggle="tooltip" data-placement="bottom"
+                            title="Copied!" data-clipboard-target="#address">
+                            <i class="material-icons md-48">file_copy</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-		var my_name = "{{name}}";
+            <br>
+            <!-- Render JSON File -->
+            <div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
+                <div class="card-header">
+                    Today's Updates
+                </div>
+                <div id="updates">
+                    <!-- javascript will fill in here -->
+                </div>
+            </div>
+            <br>
+            <!-- render json -->
+        </div>
+    </div>
+    <!-- Bottom Navbar -->
+    {{> nav}}
 
-		// write all events to html as javascript variable
-		// var events
-		{{> load_events}}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/js/home.js"></script>
+    <!-- Instantiate clipboard by passing a string selector -->
+    <script>
+    $('#copy-button').tooltip();
+    var clipboard = new ClipboardJS('#copy-button');
 
-		// write chore action pair to html as javascript dictionary
-		var chore_action = {
-			{{#each chores}}
-			"{{chore}}":"{{action}}",
-			{{/each}}
-		};
+    clipboard.on('success', function (e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+    });
 
-		//get today's date
-
-		var today = new Date();
-		var dd = String(today.getDate()).padStart(2, '0');
-		var mm = String(today.getMonth() + 1).padStart(2, '0');
-		var yyyy = today.getFullYear();
-
-		date = yyyy + '-' + mm + '-' + dd;
-
-		console.log(date);
-
-		//construct updates html list
-
-		var html_list = "";
-		var who = "";
-		var what = "";
-		for (var i = 0; i < events.length; i++) {
-			// choose today's event
-			var event = events[i];
-    		if(event["date"]==date){
-    			html_list += '<ol class="list-group list-group-flush"><li class="list-group-item">';
-    			// chore
-    			if(event["category"]=="chore"){ 				
-    				if(event["name"]==my_name){
-    					who = "your";
-    				}else{
-    					who = event["name"]+"\'s";
-    				}
-    				what = chore_action[event["description"]];
-    				html_list += "It is "+who+" turn to "+what+".";
-    			}
-    			//reservation
-    			if(event["category"]=="reservation"){
-    				if(event["name"]==my_name){
-    					who = "You have ";
-    				}else{
-    					who = event["name"]+" has ";
-    				}
-    				what = event["description"];
-    				var whats = what.split(" ");
-    				html_list += who + "reserved";
-    				// add "from"
-    				for(var j=0; j<whats.length; j++){
-    					// add before the last part, time
-    					if(j==whats.length-1){
-    						html_list += " from";
-    					}
-    					html_list += " "+whats[j];
-    				}
-    				html_list += "."
-    			}
-    			html_list += '</li></ol>'
-    		}
-
-		}
-		//console.log(html_list);
-
-		// write to the list
-		$("#updates").html(html_list);
-
-
-	</script>
+    clipboard.on('error', function (e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+</script>
 </body>
 
 </html>

@@ -46,15 +46,29 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+// HOME
 app.get('/home', home.view);
+app.post('/getEvents', home.getEvents);
+// CALENDAR
 app.get('/calendar', calendar.view);
+app.get('/assignChore', calendar.assignChore);
+app.get('/reserveApp', calendar.reserveApp);
+// RULES
 app.get('/rules', rules.view);
-app.get('/settings', settings.view);
-app.get('/chores', chores.view);
-app.get('/appliance', appliance.view);
-app.get('/addevent', addevent.addEvent);
 app.get('/rules/add', rules.add);
 app.get('/rules/remove', rules.remove);
+app.get('/addRule', rules.addRule);
+app.post('/deleteRule', rules.deleteRule)
+// SETTINGS
+app.get('/settings', settings.view);
+// CHORES
+app.get('/chores', chores.view);
+// APPLIANCE
+app.get('/appliance', appliance.view);
+app.get('/addevent', addevent.addEvent);
+
+// for A/B testing
+app.get('/homeAlt',home.viewAlt);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

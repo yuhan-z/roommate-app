@@ -8,6 +8,9 @@ Collaborators:
 
 ## Resources
 
+### Bootstrap v4.0
+* Documentation: https://getbootstrap.com/docs/4.0/getting-started/introduction/#quick-start
+
 ### Icons
 * Font Awesome: https://fontawesome.com/icons/
 * Example (Home Icon):
@@ -18,3 +21,10 @@ Collaborators:
 ### Calendar API
 * FullCalendar: https://fullcalendar.io/docs
 * Demo: https://fullcalendar.io/docs/bootstrap-theme-demo
+
+### Clipboard.js
+* clipboard.js: https://clipboardjs.com/
+
+### Google Material Design Icons
+* Website: https://material.io/resources/icons/?style=baseline
+* Guide/Docs: https://google.github.io/material-design-icons/

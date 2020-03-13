@@ -9,6 +9,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/calendar.css">
+    <link rel="stylesheet" href="/css/icons.css">
 
 	<!-- Calendar CSS -->
 	<link href='https://unpkg.com/@fullcalendar/core@4.3.1/main.min.css' rel='stylesheet' />
@@ -19,6 +20,8 @@
 
 	<!-- Load an icon library -->
 	<script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
+    <!-- Load Google Web Fonts/Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!-- Moment JS Plugin -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
@@ -65,9 +68,9 @@
 				eventLimit: true,
 				height: 'auto',
 				header: {
-					left: 'today',
+					left: '',
 					center: 'title',
-					right: 'prev,next'
+					right: 'prev,today,next'
 				},
 				footer: {
 					left: 'custom1',
@@ -114,27 +117,25 @@
 	<!--/. calendar -->
 
 	<!-- this is a comment in HTML -->
-
 <body>
 	<div class="container">
 		<!-- Navbar -->
 		<nav class="navbar bg-light justify-content-center mb-4">
-			<h3>The Roommate App</h3>
+			<h3>{{appTitle}}</h3>
 		</nav>
 		<!--/. Navbar -->
 		<!-- Calendar -->
 		<div id='calendar' class="long_padding"></div>
 		<div class='legend hidden_legend' style="padding-bottom: 9rem;">
-		  <ul class='legend-labels'>
-		  	{{#each roommates}}
-		    <li><span style='background:{{color}};'></span>{{name}}</li>
-		    {{/each}}
-		  </ul>
+            <ul class='legend-labels'>
+            {{#each roommates}}
+            <li><span style='background:{{color}};'></span>{{name}}</li>
+            {{/each}}
+            </ul>
 		</div>
 	</div>
 	<!-- Bottom Navbar -->
 	{{> nav}}
-
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
