@@ -5,22 +5,14 @@ var data = require('../data.json');
  */
 
 exports.view = function (req, res) {
-    username = req.query.username;
-    if (username == null) {
-        data["username"] = "Housemate";
-    } else {
-        data["username"] = username;
-    }
+    name = req.query.username;
+    if(name != null) data["username"] = name;
     res.render('home', data);
 };
 
 exports.viewAlt = function (req, res) {
-    username = req.query.username;
-    if (username == null) {
-        data["username"] = "Housemate";
-    } else {
-        data["username"] = username;
-    }
+    name = req.query.username;
+    if(name != null) data["username"] = name;
     res.render('homeAlt', data);
 };
 

@@ -7,15 +7,20 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Load an icon library -->
+    <script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/icons.css">
-	<!-- Load an icon library -->
-	<script src="https://kit.fontawesome.com/1caf25f8cc.js" crossorigin="anonymous"></script>
-    <!-- Load Google Web Fonts/Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
-	<!-- this is a comment in HTML -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="./css/roommateapp.css"> -->
+    <!-- this is a comment in HTML -->
+	<!-- Load Google Web Fonts/Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <body>
 	<div class="container">
@@ -28,46 +33,54 @@
 		<!-- content -->
 		<div class="jumbotron text-center" style="padding-bottom: 5rem;">
 			<!-- Render JSON File -->
-			<div class="card bg-light mx-auto border-dark" style="max-width: 25rem;" id="">
+			<div class="card bg-light mx-auto text-left border-dark" style="max-width: 25rem;" id="">
 				<div class="card-header">
 					House Rules
 				</div>
-                <!-- ATTEMPT -->
-                <div class="card-body px-4">
-                    <!-- ADD RULE -->
-                    <form method="get" action="/addRule" class="input-group">
-                        <input type="text" class="form-control" name="newRule" id="ruleInput" placeholder="Add a new rule..." required>
-                        <button class="btn btn-primary btn-sm" type="submit" id="addRule">
-                            <i class="material-icons">add</i>
-                        </button>
-                    </form>
-                    <!-- RULES -->
-                    {{#each rules}}
-                    <div class="d-flex my-4 div-rule" id="{{@index}}">
-                        <!-- DESCRIPTION-->
-                        <div class="col text-left">
-                            {{description}}
-                        </div>
-                        <!-- DELETE BUTTON -->
-                        <div class="div-button">
-                            <button class="btn btn-danger btn-sm btn-delete" type="button">
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </div>
-                    </div>
-                    {{/each}}
-                </div>
+				<div class="card-body px-4">
+					<ol>
+						<br>
+						{{#each rules}}
+						<div class="removeRule" id="r{{@index}}">
+							<li class="rule" id="{{@index}}">{{description}}</li>
+							<br>
+						</div>
+						{{/each}}
+					</ol>
+				</div>
+			</div>
+			<br>
+			<div class="edit">
+				<button type="button" class="btn btn-primary">Edit</button>
+			</div>
+			<br>
+			<!-- render json -->
 		</div>
 	</div>
 	<!-- Bottom Navbar -->
 	{{> nav}}
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="/js/rules.js"></script>
+	<script type="text/javascript">$("#nav_rules").addClass("active")</script>
+
+	<script type="text/javascript">
+		$(".edit button").click(function(e){
+			e.preventDefault();
+			$(".edit").html(	'<form id="addRule" role="form" method="get" action="/rules/add">'+
+					'<input type="text" placeholder="Add Rule" name ="rule" required>'+
+					'<input type="submit" class="btn btn-primary" value="Add">'+
+				'</form>'+
+				'<a class="btn btn-primary" href="/rules">Cancel</a>');
+			$(".removeRule").each(function(index){
+				$(".removeRule#r"+index).html(	'<li><form role="form" method="get" action="/rules/remove">'+
+					'<input type="text" class="invisible" name ="index" value="'+index+'" style="display:none;">'+
+					'<input type="text" name ="new" value="'+$(".removeRule .rule#"+index).text()+'"style="max-width:160px;">'+
+					'<button type="submit" class="btn btn-warning btn-sm" name="change"><i class="material-icons">edit</i></button>'+
+					'<button type="submit" class="btn btn-danger btn-sm" name="remove"><i class="material-icons">delete</i></button>'+
+				'</form></li><br>');
+			});
+		});
+	</script>
+
 </body>
 
 </html>
