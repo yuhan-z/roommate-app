@@ -22,5 +22,5 @@ function statusChangeCallback(response) {
 function changeUser(response) {
   //Add code to change name and image 
   console.log(response);
-  window.location.href = '/home?name=' + response.name;
+  window.location.href = '/home?username=' + response.name;
 }
