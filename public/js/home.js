@@ -14,7 +14,11 @@ function activateNavbar() {
 function initUpdates() {
 
     // Get today's date
-    var todayDate = new Date().toISOString().split('T')[0]
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    var todayDate = yyyy + '-' + mm + '-' + dd;
     console.log(todayDate);
 
     $.post('/getEvents', {}, postCallback);
